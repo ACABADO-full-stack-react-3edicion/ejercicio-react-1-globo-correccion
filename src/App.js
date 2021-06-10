@@ -1,4 +1,6 @@
 import { useState } from "react";
+import { Globo } from "./componentes/Globo";
+import { Marcador } from "./componentes/Marcador";
 
 function App() {
   const getPosicionAleatoria = () => ({
@@ -17,13 +19,12 @@ function App() {
   };
   return (
     <>
-      <p>Puntos: {puntos}</p>
-      <i
-        className="fab fa-fly globo"
-        style={{ top: posicion.top, left: posicion.left }}
-        onMouseOver={cambiarPosicion}
-        onClick={aumentaPuntos}
-      ></i>
+      <Marcador puntos={puntos} />
+      <Globo
+        posicion={posicion}
+        cambiarPosicion={cambiarPosicion}
+        aumentaPuntos={aumentaPuntos}
+      />
     </>
   );
 }
